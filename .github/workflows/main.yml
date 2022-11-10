@@ -1,1 +1,26 @@
+on:
+  push:
+    branches:
+      - master
 
+
+
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+
+    steps:
+      
+      - uses: actions/checkout@v3
+      
+      - name: "After"
+        run: ls
+
+      - name: "Building Image"
+        run: docker build -t hassan010802/newdocker .
+
+      - name: "Pushing to Docker Hub"
+        run: docker push hassan010802/newdocker
